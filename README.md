@@ -15,7 +15,7 @@
    
 ### 2. Make new sensor directory in your model directory
   ```
-  $ cd /home/Firmware/Tools/sitl_gazebo/models    
+  $ cd ~/Firmware/Tools/sitl_gazebo/models    
   $ mkdir realsense_d435
   ```
   
@@ -24,21 +24,21 @@
   ```
   $ mv ~/realsense_d435_Gazebo/model.config ~/Firmware/Tools/sitl_gazebo/models/realsense_d435
   $ mv ~/realsense_d435_Gazebo/model.sdf ~/Firmware/Tools/sitl_gazebo/models/realsense_d435
-  $ mv ~/realsense_d435_Gazebo/meshes/d435.dae ~/Firmware/Tools/sitl_gazebo/models/rotors_descripton/meshes
-  $ mv ~/realsense_d435_Gazebo/meshes/materials.urdf.xacro ~/Firmware/Tools/sitl_gazebo/models/rotors_descripton/meshes     
-  $ mv ~/realsense_d435_Gazebo/urdf/d435.urdf.xacro ~/Firmware/Tools/sitl_gazebo/models/rotors_descripton/urdf
+  $ mv ~/realsense_d435_Gazebo/meshes/d435.dae ~/Firmware/Tools/sitl_gazebo/models/rotors_description/meshes
+  $ mv ~/realsense_d435_Gazebo/urdf/materials.urdf.xacro ~/Firmware/Tools/sitl_gazebo/models/rotors_description/meshes     
+  $ mv ~/realsense_d435_Gazebo/urdf/d435.urdf.xacro ~/Firmware/Tools/sitl_gazebo/models/rotors_description/urdf
   ```
 
 
 ### 4. Edit iris.xacro
   ```
-  $ cd ~/Firmware/Tools/sitl_gazebo/models/rotors_descripton/urdf
+  $ cd ~/Firmware/Tools/sitl_gazebo/models/rotors_description/urdf
   $ gedit iris.xacro
   ```
   
    Open file d435.urdf.xacro
   
-   Copy all below <!-- includes -->
+   Copy all below <!-- includes --> without </robot> at the end of it
   
    Paste it on the </robot> at the end of the iris.xacro
   
@@ -50,21 +50,21 @@
    
 ### 5. Edit iris.sdf
   ```
-  $ cd ~/Firmware/Tools/sitl_gazebo/models/iris/iris.sdf
+  $ cd ~/Firmware/Tools/sitl_gazebo/models/iris
   $ gedit iris.sdf
   ```
   
   Add the follwing on the </model> at the end of the iris.sdf
   
   ```
-  <include>
-    <uri>model://realsense_d435</uri>    
-    <pose>0 0 0.15 0 0 3.14159265</pose>
-  </include>
-  <joint name"realsense_d435_joint" type"fixed">
-    <child>realsense_camera::link</child>    
-    <parent>base_link</parent>
-  </joint>
+    <include>
+      <uri>model://realsense_d435</uri>    
+      <pose>0 0 0.15 0 0 3.14159265</pose>
+    </include>
+    <joint name"realsense_d435_joint" type"fixed">
+      <child>realsense_camera::link</child>    
+      <parent>base_link</parent>
+    </joint>
   ```
   
   
