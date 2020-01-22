@@ -11,6 +11,11 @@
 
 ### 1. Download files about sensor
   It have to contain ~.dae, ~.urdf.xacro, ~.config, ~.sdf files.
+  
+  or just
+  ```
+  git clone https://github.com/Miseon23/Gazebo_Modeling
+  ```
    
    
 ### 2. Make new sensor directory in your model directory
@@ -25,7 +30,7 @@
   $ mv ~/realsense_d435_Gazebo/model.config ~/Firmware/Tools/sitl_gazebo/models/realsense_d435
   $ mv ~/realsense_d435_Gazebo/model.sdf ~/Firmware/Tools/sitl_gazebo/models/realsense_d435
   $ mv ~/realsense_d435_Gazebo/meshes/d435.dae ~/Firmware/Tools/sitl_gazebo/models/rotors_description/meshes
-  $ mv ~/realsense_d435_Gazebo/urdf/materials.urdf.xacro ~/Firmware/Tools/sitl_gazebo/models/rotors_description/meshes     
+  $ mv ~/realsense_d435_Gazebo/urdf/materials.urdf.xacro ~/Firmware/Tools/sitl_gazebo/models/rotors_description/urdf     
   $ mv ~/realsense_d435_Gazebo/urdf/d435.urdf.xacro ~/Firmware/Tools/sitl_gazebo/models/rotors_description/urdf
   ```
 
@@ -38,13 +43,13 @@
   
    Open file d435.urdf.xacro
   
-   Copy all below <!-- includes --> without </robot> at the end of it
+   Copy all below <!-- includes --> without /robot at the end of it
   
-   Paste it on the </robot> at the end of the iris.xacro
+   Paste it on the /robot at the end of the iris.xacro
   
    Then, edit filenames
    
-    first filename -> "metarials.urdf.xacro"
+    first filename -> "materials.urdf.xacro"
     second filename -> "model://rotors_description/meshes/d435.dae"
    
    
@@ -54,18 +59,19 @@
   $ gedit iris.sdf
   ```
   
-  Add the follwing on the </model> at the end of the iris.sdf
+  Add the follwing on the /model at the end of the iris.sdf
   
   ```
-    <include>
-      <uri>model://realsense_d435</uri>    
-      <pose>0 0 0.15 0 0 3.14159265</pose>
-    </include>
-    <joint name"realsense_d435_joint" type"fixed">
-      <child>realsense_camera::link</child>    
-      <parent>base_link</parent>
-    </joint>
+      <include>
+        <uri>model://realsense_d435</uri>    
+        <pose>0 0 0.15 0 0 3.14159265</pose>
+      </include>
+      <joint name"realsense_d435_joint" type"fixed">
+        <child>realsense_camera::link</child>    
+        <parent>base_link</parent>
+      </joint>
   ```
+  you can change camera's position by edit pose
   
   
 ### 6. EXECUTE!
