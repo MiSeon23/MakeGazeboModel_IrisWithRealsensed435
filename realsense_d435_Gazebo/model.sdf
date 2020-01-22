@@ -23,7 +23,7 @@
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://realsense_camera/meshes/realsense.dae</uri>
+            <uri>model://rotors_description/meshes/d435.dae</uri>
           </mesh>
         </geometry>
       </visual>
