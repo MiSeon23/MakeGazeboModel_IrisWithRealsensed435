@@ -1,7 +1,7 @@
 # Gazebo_Modeling
 
 ### with px4
-
+### ros-melodic, gazebo-9
 
 * * *
 
@@ -79,3 +79,8 @@
   $ cd ~/Firmware
   $ make posix_sitl_default gazebo
   ```
+
+* * *
+
+### Reference
+https://github.com/intel/gazebo-realsense.git
