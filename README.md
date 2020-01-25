@@ -1,7 +1,7 @@
 # Gazebo_Modeling
 
 ### with px4
-### ros-melodic, gazebo-9
+### ros-melodic, gazebo-9, px4 v1.9.0
 
 * * *
 
@@ -77,7 +77,7 @@
 ### 6. EXECUTE!
   ```
   $ cd ~/Firmware
-  $ make posix_sitl_default gazebo
+  $ make px4_sitl_default gazebo
   ```
 
 * * *
