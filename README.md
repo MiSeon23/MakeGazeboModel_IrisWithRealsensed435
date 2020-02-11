@@ -66,7 +66,7 @@
         <uri>model://realsense_d435</uri>    
         <pose>0 0 0.15 0 0 3.14159265</pose>
       </include>
-      <joint name"realsense_d435_joint" type"fixed">
+      <joint name="realsense_d435_joint" type="fixed">
         <child>realsense_camera::link</child>    
         <parent>base_link</parent>
       </joint>
